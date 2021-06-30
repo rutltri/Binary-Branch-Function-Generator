@@ -1,10 +1,8 @@
 import math
 import tkinter as tk
 from tkinter import messagebox
-import pathlib
-from pathlib import Path as path
-import os
 from tkinter.constants import TRUE
+from pathlib import Path as path
 
 class system:
     def gen(self):
@@ -189,10 +187,16 @@ class system:
             return _+run+zbp+"\n"+__+run+xbp
 
         self.var = self.score.get()
-        self.count = int(self.comp.get())
         self.folder = self.title.get()
 
-        if os.path.isdir(self.folder):
+        try:
+            self.count = int(self.comp.get())
+        except:
+            self.count = -1
+        else:
+            pass
+
+        if path.is_dir(path(self.folder)):
             messagebox.showerror("FolderExistsError","指定したフォルダが既に存在しています。")
         elif not 0 < len(self.folder):
             messagebox.showerror("FolderNameEmptyError","フォルダ名を指定してください。")
@@ -238,8 +242,8 @@ class system:
 
     def view_gen(self):
         c = 1
-        view_run = self.return_command(c)
-        self.run_view["text"] = ("if "+eval(self.syntax_init())+view_run)
+        view_run = self.return_command(c).split("\n")
+        self.run_view["text"] = ("if "+eval(self.syntax_init())+view_run[0])
 
     def path_clone(self, var, indx, mode):
         self.funcIdP.delete(0,tk.END)
@@ -315,8 +319,8 @@ class system:
         self.run.insert(tk.END,"say \"This is $~i.\"")
         self.run.place(width=540,x=20,y=240)
 
-        self.func_path.trace_add("write", self.path_clone)
-        self.comp_max.trace_add("write",self.comp_between)
+        self.func_path.trace_add("write",self.path_clone)
+        #self.comp_max.trace_add("write",self.comp_between)
         self.view_gen()
 
 main = tk.Tk()
