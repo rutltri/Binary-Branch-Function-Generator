@@ -22,7 +22,9 @@
 ### ・つまり
 E N J O Y !
 <br><br><br>
-詳しい解説とか調整は気が向いたらします。
+詳しい解説とかは以下の動画からどうぞ。<br>
+[![](https://img.youtube.com/vi/jpgkozxY6hM/0.jpg)](https://www.youtube.com/watch?v=jpgkozxY6hM)
+<br>
 どういう解説が分かりやすいか全然分かりません。
 <br><br><br><br><br><br>
 ぎっとはぶなにもわからん
